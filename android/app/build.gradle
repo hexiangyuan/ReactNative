@@ -9,6 +9,7 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
+apply from: "../../node_modules/react-native/react.gradle"
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -63,6 +64,9 @@ android {
         }
         debug {
             signingConfig signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFile 'proguard-project.txt'
             applicationIdSuffix '.debug'
             resValue "string", "app_name", "ezbiz_debug"
         }

@@ -56,7 +56,7 @@ class HelloWorld extends React.Component {
     }, (errorMsg) => { })
   }
 
-  static _onPressRow(title: string) {
+   _onPressRow(title: string) {
     switch (title) {
       case "Scan to shelf":
         StartActivityAndroid.startActivityFromJSExtras(
@@ -129,7 +129,7 @@ class HelloWorld extends React.Component {
 }
 
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   list: {
     flexDirection: 'row',
     flexWrap: 'wrap'

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:layout_marginTop="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_blue_bg"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:hint="@string/please_choose_remark_template"
+        android:padding="8dp" />
+
+    <EditText
+        android:id="@+id/et_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_blue_bg"
+        android:gravity="top"
+        android:hint="@string/please_input_remark_information"
+        android:minHeight="160dp"
+        android:padding="8dp"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/et_remark"
+        android:layout_marginTop="8dp"
+        android:background="#ff33b5e5"
+        android:text="@string/remark"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>

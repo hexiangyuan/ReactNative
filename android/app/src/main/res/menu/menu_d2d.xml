@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_switch"
+        android:icon="@drawable/ic_swap_horiz_white_24dp"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/item_switch" />
+
+    <item
+        android:id="@+id/menu_date"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_date_range_white_24dp"
+        app:showAsAction="always"
+        android:title="@string/date" />
+
+</menu>

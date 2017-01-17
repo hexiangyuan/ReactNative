@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    app:layout_scrollFlags="scroll|enterAlways">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <Button
+            android:id="@+id/time_start"
+            style="@style/pick_button_style"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:hint="@string/time_start" />
+
+        <Button
+            android:id="@+id/time_end"
+            style="@style/pick_button_style"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:hint="@string/time_end" />
+
+        <CheckBox
+            android:id="@+id/cb_picked"
+            style="@style/Base.Theme.AppCompat.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="6dp"
+            android:text="@string/picked"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/lock"
+            style="@style/pick_button_style_color"
+            android:text="@string/lock" />
+
+        <Button
+            android:id="@+id/unlock"
+            style="@style/pick_button_style_color"
+            android:text="@string/unlock" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <Button
+            android:id="@+id/drivers"
+            style="@style/pick_button_style"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:hint="@string/all_driver" />
+
+        <Button
+            android:id="@+id/warehouse"
+            style="@style/pick_button_style"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:hint="@string/all_warehouses" />
+s
+        <Button
+            android:id="@+id/search"
+            style="@style/pick_button_style_color"
+            android:text="@string/search" />
+
+        <Button
+            android:id="@+id/bp"
+            style="@style/pick_button_style_color"
+            android:background="@drawable/shape_blue_bg"
+            android:textColor="@color/blue"
+            android:text="0B0P" />
+
+
+        <Button
+            android:id="@+id/scan"
+            style="@style/pick_button_style_color"
+            android:text="@string/scan" />
+    </LinearLayout>
+
+</LinearLayout>

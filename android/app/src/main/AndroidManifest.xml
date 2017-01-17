@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.daigou.selfstation">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name=".system.EzDeliveryApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SearchParcelActivity"
+            android:label="@string/search_parcel"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ScanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ParcelListActivity"
+            android:label="@string/parcel_list"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ParcelDetailActivity"
+            android:label="@string/parcel_detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MySettingActivity"
+            android:label="@string/my_setting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SignScanActivity"
+            android:label="@string/sign_to_receive"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ScanParcel2BoxActivity"
+            android:label="@string/scan_to_shelf"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".scan.ClearanceScanClass"
+            android:label="@string/scan_for_clearance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pick.ui.PickingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/picking"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Custom.Dark" />
+        <activity
+            android:name=".activity.RemarkInfoActivity"
+            android:label="@string/remark"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".webview.WebViewActivity"
+            android:label="@string/partner_shop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".d2d.D2dListActivity"
+            android:label="@string/d2d"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".d2d.JobDetailActivity"
+            android:label="@string/parcel_detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".d2d.D2DSignActivity"
+            android:label="@string/sign"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".nhpicking.NHPickingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/neighborhood_picking"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Custom.Dark" />
+        <activity
+            android:name=".nhpicking.NHScanParcel2BoxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".nhpicking.StationBoxActivity"
+            android:label="Boxes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".d2d.DriverQueueActivity"
+            android:label="@string/packing"
+            android:screenOrientation="portrait" />
+
+        <!-- 蒲公英自动更新SDK -->
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="e2774715e25ef8bd8d45c20510a3fa3f" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c6546271c1d497ceaaa83371b4696db74ea8cd27" />
+
+        <service
+            android:name=".d2d.LocationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".d2d.D2DRemarkActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/remark" />
+        <activity
+            android:name=".activity.MyJobActivity"
+            android:label="@string/my_job"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.StartPickingActivity"
+            android:label="@string/picking"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ScanSearchShowActivity"
+            android:label="@string/subParcelDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SearchSubParcelActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <activity
+            android:name=".MyReactActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        />
+
+    </application>
+
+</manifest>

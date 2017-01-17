@@ -1,0 +1,3 @@
+<resources>
+    <style name="CaptureTheme" parent="android:Theme.NoTitleBar.Fullscreen" />
+</resources>

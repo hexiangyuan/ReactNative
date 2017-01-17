@@ -1,0 +1,155 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+-optimizationpasses 5                                                           # 指定代码的压缩级别
+-dontusemixedcaseclassnames                                                     # 是否使用大小写混合
+-dontskipnonpubliclibraryclasses                                                # 是否混淆第三方jar
+-dontpreverify                                                                  # 混淆时是否做预校验
+-verbose                                                                        # 混淆时是否记录日志
+-keepattributes Annotation,SourceFile,LineNumberTable
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*        # 混淆时所采用的算法
+
+-dontwarn android.support.**
+
+-keep public class * extends android.app.Activity                               # 保持Activity类不被混淆
+-keep public class * extends android.app.Application                            # 保持Applicaation不被混淆
+-keep public class * extends android.app.Service                                # 保持Service不被混淆
+-keep public class * extends android.content.BroadcastReceiver                  # 保持BroadCast不被混淆
+-keep public class * extends android.content.ContentProvider                    # 保持ContentProvider不被混淆
+-keep public class * extends android.app.backup.BackupAgentHelper               # 保持BackupAgentHelper不被混淆
+-keep public class * extends android.preference.Preference                      # 保持Preference不被混淆
+-keep public class com.android.vending.licensing.ILicensingService              # 保持ILicensingService不被混淆
+
+-keep class com.daigou.selfstation.rpc.**.**{*;}                                # 保持rpc不被混淆
+-keep class com.daigou.sg.rpc.**.**{*;}                                         # 保持rpc不被混淆
+-keep class com.daigou.model.**.**{*;}                                          # 保持rpc不被混淆
+
+-keepclasseswithmembernames class * {                                           # 保持 native 方法不被混淆
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {                                               # 保持自定义控件类不被混淆
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);     # 保持自定义控件类不被混淆
+}
+
+-keepclassmembers class * extends android.app.Activity {                        # 保持自定义控件类不被混淆
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {                                                      # 保持枚举 enum 类不被混淆
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {                                # 保持 Parcelable 不被混淆
+  public static final android.os.Parcelable$Creator *;
+}
+
+#不混淆Serializable的子类
+# Explicitly preserve all serialization members. The Serializable interface
+# is only a marker interface, so it wouldn't save them.
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+# Support v4
+-keep public class * extends android.support.v4.**
+-keep interface android.support.v4.app.** { *; }
+-keep public class android.support.v4.widget.** { *; }
+-keep public class android.support.v4.internal.widget.** { *; }
+-keep public class android.support.v4.internal.view.menu.** { *; }
+-keep public class * extends android.support.v4.view.ActionProvider {
+    public <init>(android.content.Context);
+}
+
+# Support v7
+-keep public class android.support.v7.widget.** { *; }
+-keep public class android.support.v7.internal.widget.** { *; }
+-keep public class android.support.v7.internal.view.menu.** { *; }
+-keep class android.support.v7.widget.RoundRectDrawable { *; }
+
+# Design
+-keep class android.support.design.** { *; }
+
+#保持自定义组件不被混淆
+-keep public class * extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+    public void set*(...);
+}
+
+#####################记录生成的日志数据,gradle build时在本项目根目录输出################
+
+#apk 包内所有 class 的内部结构
+-dump class_files.txt
+#未混淆的类和成员
+-printseeds seeds.txt
+#列出从 apk 中删除的代码
+-printusage unused.txt
+#混淆前后的映射
+-printmapping mapping.txt
+
+
+################混淆保护自己项目的部分代码以及引用的第三方jar包library#########################
+###-------- Gson 相关的混淆配置--------
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.examples.android.model.** { *; }
+
+# Volley
+-keep class com.android.volley.** {*;}
+
+# qiniu
+-keep class com.qiniu.**{*;}
+-keep class com.qiniu.**{public <init>();}
+-ignorewarnings
+
+#Fresco Sdk  https://raw.githubusercontent.com/facebook/fresco/master/proguard-fresco.pro
+# Keep our interfaces so they can be used by other ProGuard rules.
+# See http://sourceforge.net/p/proguard/bugs/466/
+-keep,allowobfuscation @interface com.facebook.common.internal.DoNotStrip
+
+# Do not strip any method/class that is annotated with @DoNotStrip
+-keep @com.facebook.common.internal.DoNotStrip class *
+-keepclassmembers class * {
+    @com.facebook.common.internal.DoNotStrip *;
+}
+
+# Keep native methods
+-keepclassmembers class * {
+    native <methods>;
+}
+
+-dontwarn okio.**
+-dontwarn com.squareup.okhttp.**
+-dontwarn okhttp3.**
+-dontwarn javax.annotation.**
+-dontwarn com.android.volley.toolbox.**
